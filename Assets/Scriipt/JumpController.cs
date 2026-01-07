@@ -14,13 +14,13 @@ public class JumpController : MonoBehaviour
         // Start jump when space is pressed
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetBool("isJumping", true);
+            animator.SetBool("Jump", true);
         }
 
         // End jump when grounded
-        if (IsGrounded() && animator.GetBool("isJumping"))
+        if (IsGrounded() && animator.GetBool("Jump"))
         {
-            animator.SetBool("isJumping", false);
+            animator.SetBool("Jump", false);
         }
     }
 

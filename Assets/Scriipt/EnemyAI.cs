@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour
     private Transform player;
     private NavMeshAgent agent;
     private float lastAttackTime;
+    private Animator animator;
 
     void Start()
     {
@@ -32,6 +33,8 @@ public class EnemyAI : MonoBehaviour
                 Attack();
             }
         }
+        animator.SetTrigger("Attack");
+
     }
 
     void Attack()

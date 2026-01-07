@@ -11,12 +11,14 @@ public class EnemyAnimation : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        //animator = GetComponentInChildren<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
     {
         speed = agent.velocity.magnitude;
+        animator.SetFloat("Speed", speed);
+
         if (speed > 3)
         {
             actions.Run();
@@ -26,5 +28,20 @@ public class EnemyAnimation : MonoBehaviour
         {
             actions.Stay();
         }
+    }
+
+    public void Attack()
+    {
+        animator.SetTrigger("Attack");
+    }
+
+    public void Jump()
+    {
+    animator.SetTrigger("Jump");
+    }
+
+    public void SetAiming(bool value)
+    {
+        animator.SetBool("Aiming", value);
     }
 }
