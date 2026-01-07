@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    public Transform firePoint;
-    public float bulletSpeed = 25f;
+    [SerializeField] public GameObject bulletPrefab;
+    [SerializeField] public Transform firePoint;
+    [SerializeField] public float bulletSpeed = 25f;
     public float damage = 25f;
+   
 
     void Update()
     {
