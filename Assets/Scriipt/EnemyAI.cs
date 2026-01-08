@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,6 +17,8 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
+
+        animator = GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
@@ -33,7 +36,7 @@ public class EnemyAI : MonoBehaviour
                 Attack();
             }
         }
-        animator.SetTrigger("Attack");
+        animator.SetTrigger("Fire");
 
     }
 
@@ -44,7 +47,7 @@ public class EnemyAI : MonoBehaviour
             lastAttackTime = Time.time;
 
             // Example: damage the player
-            player.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+            player.GetComponent<PlayerHealth>()?.TakeDamage((int)Math.Round(damage));
         }
     }
 

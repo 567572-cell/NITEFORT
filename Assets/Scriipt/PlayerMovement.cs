@@ -64,6 +64,10 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleMovement()
     {
+        // Check if controller exists and is enabled
+        if (controller == null || !controller.enabled)
+            return;
+            
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 

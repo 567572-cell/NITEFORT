@@ -15,13 +15,21 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] public float bulletSpeed = 25f;
     public float damage = 25f;
     [SerializeField] public BulletDirection bulletDirection = BulletDirection.CameraHorizontal;
-    
+    [SerializeField] public GunSound gunSound;
+
+    void Start()
+    {
+        gunSound = GetComponent<GunSound>();
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
+            gunSound.PlayGunShot();
         }
+
     }
 
     void Shoot()
@@ -78,4 +86,5 @@ public class PlayerShooting : MonoBehaviour
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.linearVelocity = direction * bulletSpeed; // ✅ fixed (no linearVelocity)
     }
+    
 }
